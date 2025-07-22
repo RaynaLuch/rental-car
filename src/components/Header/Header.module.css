@@ -1,0 +1,40 @@
+.header {
+  background-color: var(--badges);
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--badges);
+}
+
+.logo {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.logoLeft {
+  color: var(--main);
+}
+
+.logoRight {
+  color: var(--button);
+}
+
+.navigation {
+  display: flex;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 16px;
+  /* line-height: 125%; */
+  padding-top: 24px;
+  padding-bottom: 24px;
+  gap: 32px;
+}
+
+.active {
+  color: var(--button);
+}
+.notActive {
+  color: var(--main);
+}
