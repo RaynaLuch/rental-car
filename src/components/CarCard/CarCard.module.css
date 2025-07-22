@@ -1,0 +1,61 @@
+.carCard {
+  width: 276px;
+}
+.image {
+  border-radius: 14px;
+  /* width: 100%;
+  height: 268px; */
+  height: auto;
+  max-width: 100%;
+}
+.carData {
+  padding-top: 16px;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.carName {
+  font-weight: 500;
+  font-size: 16px;
+}
+.model {
+  color: var(--button);
+}
+.rentalPrice {
+  font-weight: 500;
+  font-size: 16px;
+}
+.address {
+  display: flex;
+  padding-bottom: 4px;
+}
+.other {
+  display: flex;
+  padding-bottom: 32px;
+}
+.parameter {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--gray);
+}
+.line {
+  stroke-width: 1px;
+  stroke: var(--gray-light);
+}
+.cardButton {
+  border-radius: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: var(--button);
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.cardButton:hover {
+  background: var(--button-hover);
+}

@@ -1,0 +1,20 @@
+.carList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 48px;
+  padding-bottom: 80px;
+}
+.loadMoreButton {
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  padding: 12px 51px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--main);
+  margin: 0 auto;
+  display: block;
+  background-color: transparent;
+  margin-bottom: 124px;
+}
