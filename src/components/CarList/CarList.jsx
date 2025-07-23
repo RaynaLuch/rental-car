@@ -14,7 +14,7 @@ const CarList = () => {
     setLoading(true);
     try {
       const data = await getCarsByPage(pageToLoad);
-      setCars((prev) => [...prev, ...data.cars]); // додаємо нові
+      setCars((prev) => [...prev, ...data.cars]);
       setTotalPages(data.totalPages);
     } catch (error) {
       console.error("Error fetching cars:", error);

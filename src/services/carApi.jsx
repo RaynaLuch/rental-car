@@ -1,9 +1,21 @@
+import axios from "axios";
+
+const BASE_URL = "https://car-rental-api.goit.global/cars";
+
 export const getCarsByPage = async (page = 1) => {
-  const res = await fetch(
-    `https://car-rental-api.goit.global/cars?page=${page}`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch cars");
+  try {
+    const { data } = await axios.get(`${BASE_URL}?page=${page}`);
+    return data; // очікується об'єкт з cars, totalPages тощо
+  } catch (error) {
+    throw new Error("Failed to fetch cars: " + error?.message);
   }
-  return await res.json(); // { cars, page, totalPages }
+};
+
+export const getCarById = async (id) => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/${id}`);
+    return data; // очікується об'єкт з даними про авто
+  } catch (error) {
+    throw new Error("Failed to fetch car data: " + error?.message);
+  }
 };
