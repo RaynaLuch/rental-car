@@ -18,3 +18,7 @@
   background-color: transparent;
   margin-bottom: 124px;
 }
+
+.loadMoreButton:hover {
+  border: 1px solid var(--button-hover);
+}

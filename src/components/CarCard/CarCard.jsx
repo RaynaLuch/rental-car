@@ -4,7 +4,6 @@ import css from "./CarCard.module.css";
 const CarCard = ({ car }) => {
   const navigate = useNavigate();
 
-  // Розбиваємо адресу тут, щоб city і country були доступні в JSX
   const address = car.address;
   const parts = address.split(",").map((part) => part.trim());
 
