@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import css from "./Header.module.css";
 import Container from "../Container/Container";
 
@@ -7,9 +7,11 @@ const Header = () => {
     <div className={css.header}>
       <Container>
         <div className={css.headerNav}>
-          <svg className={css.logo} width="104" height="16">
-            <use href="/icons.svg#icon-rental-car"></use>
-          </svg>
+          <Link to="/">
+            <svg className={css.logo} width="104" height="16">
+              <use href="/icons.svg#icon-rental-car"></use>
+            </svg>
+          </Link>
           <div className={css.navigation}>
             <NavLink
               to="/"
