@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import css from "./CarCard.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/favoritesSlice";
 
 const CarCard = ({ car }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.items);
+  const isFavorite = favorites.includes(car.id);
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(car.id));
+  };
+
   const navigate = useNavigate();
 
   const address = car.address;
@@ -16,7 +26,27 @@ const CarCard = ({ car }) => {
 
   return (
     <div className={css.carCard}>
-      <img className={css.image} src={car.img} alt={car.brand} />
+      <div className={css.imageWrapper}>
+        <img className={css.image} src={car.img} alt={car.brand} />
+        <button
+          onClick={handleToggleFavorite}
+          className={css.favoriteButton}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          <svg
+            width="16"
+            height="16"
+            fill={isFavorite ? "var(--button)" : "none"}
+            stroke={isFavorite ? "none" : "var(--main)"}
+          >
+            <use
+              href={`/icons.svg#${
+                isFavorite ? "icon-fill-heart" : "icon-heart"
+              }`}
+            />
+          </svg>
+        </button>
+      </div>
       <div className={css.carData}>
         <div className={css.carName}>
           <span className={css.brand}>{car.brand} </span>

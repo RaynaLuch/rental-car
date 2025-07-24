@@ -1,12 +1,25 @@
 .carCard {
   width: 276px;
 }
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
 .image {
   border-radius: 14px;
-  /* width: 100%;
-  height: 268px; */
   height: auto;
   max-width: 100%;
+  display: block;
+}
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  z-index: 2;
 }
 .carData {
   padding-top: 16px;
