@@ -15,7 +15,6 @@ const BookingForm = () => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log("Booking data:", values);
     toast.success("Booking successful!");
     resetForm();
   };
