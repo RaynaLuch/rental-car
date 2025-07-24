@@ -2,19 +2,25 @@ import { useEffect, useState } from "react";
 import { getCarsByPage } from "../../services/carApi.jsx";
 import CarCard from "../CarCard/CarCard.jsx";
 import css from "./CarList.module.css";
+import { useSelector } from "react-redux";
 
 const CarList = () => {
+  const filters = useSelector((state) => state.filters);
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // завантажує першу сторінку або наступну
   const fetchCars = async (pageToLoad) => {
     setLoading(true);
     try {
-      const data = await getCarsByPage(pageToLoad);
-      setCars((prev) => [...prev, ...data.cars]);
+      const data = await getCarsByPage(pageToLoad, filters);
+      setCars((prev) => {
+        const newCars = data.cars.filter(
+          (car) => !prev.some((existing) => existing.id === car.id)
+        );
+        return [...prev, ...newCars];
+      });
       setTotalPages(data.totalPages);
     } catch (error) {
       console.error("Error fetching cars:", error);
@@ -24,8 +30,13 @@ const CarList = () => {
   };
 
   useEffect(() => {
+    setCars([]);
+    setPage(1);
+  }, [filters]);
+
+  useEffect(() => {
     fetchCars(page);
-  }, [page]);
+  }, [page, filters]);
 
   const handleLoadMore = () => {
     setPage((prev) => prev + 1);

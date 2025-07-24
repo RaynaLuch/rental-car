@@ -1,0 +1,90 @@
+.filterForm {
+  padding-top: 84px;
+  padding-bottom: 56px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.labelLocation {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+.label {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.error {
+  min-height: 16px;
+  font-size: 12px;
+  color: red;
+  padding-left: 16px;
+}
+
+.inputs {
+  display: flex;
+  gap: 0px;
+  width: max-content;
+}
+
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+  flex: 1;
+}
+
+.inputMinWrapper input {
+  border-radius: 12px 0 0 12px;
+  border: none;
+  border-right: 1px solid var(--gray-light);
+}
+
+.inputMaxWrapper input {
+  border-radius: 0 12px 12px 0;
+  border: none;
+}
+
+.inputWrapper input {
+  width: 100%;
+
+  padding: 12px 16px 12px 60px;
+  background: var(--inputs);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.inputWrapper::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main);
+  pointer-events: none;
+  user-select: none;
+  font-size: 16px;
+}
+.buttonSearch {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+  border-radius: 12px;
+  padding: 12px 99px;
+  background: var(--button);
+  border: none;
+}
+
+.buttonSearch:hover {
+  background: var(--button-hover);
+}
