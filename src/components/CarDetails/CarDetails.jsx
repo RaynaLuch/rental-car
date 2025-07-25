@@ -3,18 +3,45 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCarById } from "../../services/carApi";
 import BookingForm from "../BookingForm/BookingForm.jsx";
+import Loader from "../Loader/Loader.jsx";
+
+const formatMileage = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
 
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getCarById(id).then(setCar).catch(console.error);
+    setLoading(true);
+    setError(null);
+    getCarById(id)
+      .then((data) => {
+        setCar(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Failed to load car details");
+        setLoading(false);
+      });
   }, [id]);
 
-  if (!car) return <p>Loading car...</p>;
+  if (loading)
+    return (
+      <div className={css.loaderOverlay}>
+        <Loader />
+      </div>
+    );
 
-  const address = car.address;
+  if (error)
+    return <p style={{ color: "red", textAlign: "center" }}>{error}</p>;
+
+  if (!car) return null;
+
+  const address = car.address || "";
   const parts = address.split(",").map((part) => part.trim());
 
   const city = parts[1] || "";
@@ -40,7 +67,7 @@ const CarDetails = () => {
           <p className={css.location}>
             {city}, {country}
           </p>
-          <p>Mileage: {car.mileage} km</p>
+          <p>Mileage: {formatMileage(car.mileage)} km</p>
         </div>
         <p className={css.rentalPrice}>${car.rentalPrice}</p>
         <p className={css.description}>{car.description}</p>
@@ -111,4 +138,5 @@ const CarDetails = () => {
     </div>
   );
 };
+
 export default CarDetails;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFilters } from "../../redux/filtersSlice";
 import { getBrands } from "../../services/carApi.jsx";
 import css from "./Filters.module.css";
@@ -37,6 +37,9 @@ const customComponents = {
 };
 
 const Filters = () => {
+  const dispatch = useDispatch();
+  const storedFilters = useSelector((state) => state.filters);
+
   const [brands, setBrands] = useState([]);
   const [mileageMin, setMileageMin] = useState("");
   const [mileageMax, setMileageMax] = useState("");
@@ -44,8 +47,6 @@ const Filters = () => {
   const [mileageMaxError, setMileageMaxError] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchBrands = async () => {
@@ -58,6 +59,23 @@ const Filters = () => {
     };
     fetchBrands();
   }, []);
+
+  useEffect(() => {
+    if (storedFilters) {
+      setSelectedBrand(storedFilters.brand || "");
+      setSelectedPrice(storedFilters.rentalPrice || "");
+      setMileageMin(
+        storedFilters.mileageMin
+          ? formatNumber(storedFilters.mileageMin.toString())
+          : ""
+      );
+      setMileageMax(
+        storedFilters.mileageMax
+          ? formatNumber(storedFilters.mileageMax.toString())
+          : ""
+      );
+    }
+  }, [storedFilters]);
 
   const handleMileageMinChange = (e) => {
     const input = e.target.value;

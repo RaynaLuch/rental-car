@@ -1,11 +1,32 @@
+.container {
+  position: relative;
+}
+
+.loaderOverlay {
+  position: fixed; /* або absolute, якщо є певний контекст */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.7); /* напівпрозорий фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* щоб був поверх усього */
+}
 .carList {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   row-gap: 48px;
+  column-gap: calc((100% - 276px * 4) / 3);
   padding-bottom: 80px;
 }
+
+.carList > * {
+  width: 276px;
+}
+
 .loadMoreButton {
   border: 1px solid var(--button);
   border-radius: 12px;
@@ -17,6 +38,7 @@
   display: block;
   background-color: transparent;
   margin-bottom: 124px;
+  cursor: pointer;
 }
 
 .loadMoreButton:hover {
