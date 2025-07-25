@@ -77,7 +77,7 @@ const CarDetails = () => {
             {car.rentalConditions.map((condition, index) => (
               <li className={css.condition} key={index}>
                 <svg className={css.checkIcon} width="16" height="16">
-                  <use href="/public/icons.svg#icon-check-circle"></use>
+                  <use href="/icons.svg#icon-check-circle"></use>
                 </svg>
                 {condition}
               </li>
@@ -89,25 +89,25 @@ const CarDetails = () => {
           <ul className={css.conditions}>
             <li className={css.condition}>
               <svg className={css.checkIcon} width="16" height="16">
-                <use href="/public/icons.svg#icon-calendar"></use>
+                <use href="/icons.svg#icon-calendar"></use>
               </svg>
               Year: {car.year}
             </li>
             <li className={css.condition}>
               <svg className={css.checkIcon} width="16" height="16">
-                <use href="/public/icons.svg#icon-car"></use>
+                <use href="/icons.svg#icon-car"></use>
               </svg>
               Type: {car.type}
             </li>
             <li className={css.condition}>
               <svg className={css.checkIcon} width="16" height="16">
-                <use href="/public/icons.svg#icon-fuel-pump"></use>
+                <use href="/icons.svg#icon-fuel-pump"></use>
               </svg>
               Fuel Consumption: {car.fuelConsumption}
             </li>
             <li className={css.condition}>
               <svg className={css.checkIcon} width="16" height="16">
-                <use href="/public/icons.svg#icon-gear"></use>
+                <use href="/icons.svg#icon-gear"></use>
               </svg>
               Engine Size: {car.engineSize}
             </li>
@@ -119,7 +119,7 @@ const CarDetails = () => {
             {car.accessories.map((accessory, index) => (
               <li className={css.condition} key={index}>
                 <svg className={css.checkIcon} width="16" height="16">
-                  <use href="/public/icons.svg#icon-check-circle"></use>
+                  <use href="/icons.svg#icon-check-circle"></use>
                 </svg>
                 {accessory}
               </li>
@@ -127,7 +127,7 @@ const CarDetails = () => {
             {car.functionalities.map((functionality, index) => (
               <li className={css.condition} key={index}>
                 <svg className={css.checkIcon} width="16" height="16">
-                  <use href="/public/icons.svg#icon-check-circle"></use>
+                  <use href="/icons.svg#icon-check-circle"></use>
                 </svg>
                 {functionality}
               </li>

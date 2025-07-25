@@ -41,7 +41,7 @@ export const customSelectStyles = {
     },
     "&::-webkit-scrollbar-button": {
       display: "none",
-      "-webkit-appearance": "none",
+      WebkitAppearance: "none",
     },
   }),
 
