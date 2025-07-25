@@ -19,11 +19,10 @@ const CarList = () => {
   }, [filters, dispatch]);
 
   useEffect(() => {
-    if (page !== 1) {
+    if (page > 1) {
       dispatch(fetchCars({ page, filters }));
     }
-  }, [page, filters, dispatch]);
-
+  }, [page, dispatch]);
   const handleLoadMore = () => {
     dispatch(incrementPage());
   };
