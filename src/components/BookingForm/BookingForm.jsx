@@ -34,42 +34,44 @@ const BookingForm = () => {
             </p>
 
             <div className={css.formOrder}>
-              <div>
+              <div className={css.fieldWrapper}>
                 <Field
                   className={css.nameForm}
                   type="text"
                   name="name"
                   placeholder="Name*"
                 />
-                <ErrorMessage
-                  name="name"
-                  component="div"
-                  className={css.error}
-                />
+                <div className={css.errorWrapper}>
+                  <ErrorMessage name="name">
+                    {(msg) => <span className={css.error}>{msg}</span>}
+                  </ErrorMessage>
+                </div>
               </div>
-              <div>
+              <div className={css.fieldWrapper}>
                 <Field
                   className={css.emailForm}
                   type="email"
                   name="email"
                   placeholder="Email*"
                 />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className={css.error}
-                />
+                <div className={css.errorWrapper}>
+                  <ErrorMessage name="email">
+                    {(msg) => <span className={css.error}>{msg}</span>}
+                  </ErrorMessage>
+                </div>
               </div>
-              <BookingDateInput
-                name="bookingDate"
-                value={values.bookingDate}
-                onChange={(date) => setFieldValue("bookingDate", date)}
-              />
-              <ErrorMessage
-                name="bookingDate"
-                component="div"
-                className={css.error}
-              />
+              <div className={css.fieldWrapper}>
+                <BookingDateInput
+                  name="bookingDate"
+                  value={values.bookingDate}
+                  onChange={(date) => setFieldValue("bookingDate", date)}
+                />
+                <div className={css.errorWrapper}>
+                  <ErrorMessage name="bookingDate">
+                    {(msg) => <span className={css.error}>{msg}</span>}
+                  </ErrorMessage>
+                </div>
+              </div>
               <div>
                 <Field
                   as="textarea"

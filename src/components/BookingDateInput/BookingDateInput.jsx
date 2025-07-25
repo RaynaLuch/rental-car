@@ -11,6 +11,7 @@ const BookingDateInput = ({ name, value, onChange }) => {
       className={css.bookingInput}
       calendarClassName={css.calendar}
       name={name}
+      minDate={new Date()}
     />
   );
 };

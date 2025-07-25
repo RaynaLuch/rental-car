@@ -39,6 +39,7 @@
   margin: 0 auto;
   display: block;
   border: none;
+  cursor: pointer;
 }
 
 .heroButton:hover {
